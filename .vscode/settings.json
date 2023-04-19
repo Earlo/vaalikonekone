@@ -9,6 +9,7 @@
   },
   "eslint.validate": ["typescript", "typescriptreact"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

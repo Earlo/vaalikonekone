@@ -33,13 +33,14 @@
       }
     ],
     "comma-dangle": ["error", "always-multiline"],
-    "import/no-unresolved": "off", // todo: fix custom types resolver  [2, { "commonjs": true, "amd": true }],
+    "import/no-unresolved": "on",
     "import/named": 2,
     "import/namespace": 2,
     "import/default": 2,
     "import/export": 2,
     "import/order": [
       "error",
+      { "newlines-between": "never" },
       {
         "groups": [
           "index",
