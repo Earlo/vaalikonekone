@@ -1,8 +1,8 @@
-#Vaalikonekone
+# Vaalikonekone
 
 Vaalikonekone is a web application that helps users find the political party that best aligns with their values and beliefs. It is built with React, Next.js, and Tailwind CSS.
 
-##Features
+## Features
 
 - User can answer a series of questions to indicate their political views and priorities
 - User is matched with political parties based on their answers
