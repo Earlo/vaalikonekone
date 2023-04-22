@@ -1,6 +1,11 @@
-import Link from 'next/link';
+'use client';
 
-const Header = () => {
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="flex items-center justify-between p-4">
       <div className="flex items-center">
@@ -9,18 +14,31 @@ const Header = () => {
         </Link>
       </div>
       <nav className="flex items-center">
-        <Link className="mx-4 hover:text-gray-500" href="/">
+        <Link
+          className={`mx-4 hover:text-gray-500 ${
+            pathname === '/' ? 'text-gray-500' : ''
+          }`}
+          href="/"
+        >
           Home
         </Link>
-        <Link className="mx-4 hover:text-gray-500" href="/about">
+        <Link
+          className={`mx-4 hover:text-gray-500 ${
+            pathname === '/about' ? 'text-gray-500' : ''
+          }`}
+          href="/about"
+        >
           About
         </Link>
-        <Link className="mx-4 hover:text-gray-500" href="/contact">
+        <Link
+          className={`mx-4 hover:text-gray-500 ${
+            pathname === '/contact' ? 'text-gray-500' : ''
+          }`}
+          href="/contact"
+        >
           Contact
         </Link>
       </nav>
     </header>
   );
-};
-
-export default Header;
+}

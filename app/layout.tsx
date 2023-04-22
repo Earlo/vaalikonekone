@@ -1,7 +1,7 @@
-import Footer from './components/generic/footer';
-import Header from './components/generic/header';
 import './globals.css';
 
+import Footer from './components/generic/footer';
+import Header from './components/generic/header';
 import SupabaseProvider from './supabase-provider';
 
 export const metadata = {
@@ -19,11 +19,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <SupabaseProvider>
           <Header />
-          <div className="flex-grow min-h-0">
-            <main className="flex flex-col justify-center items-center p-8">
-              {children}
-            </main>
-          </div>
+          {children}
           <Footer />
         </SupabaseProvider>
       </body>
