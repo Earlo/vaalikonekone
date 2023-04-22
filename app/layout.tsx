@@ -16,7 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <Header />
-        {children}
+        <div className="flex-grow min-h-0">
+          <main className="flex flex-col justify-center items-center p-8">
+            {children}
+          </main>
+        </div>
         <Footer />
       </body>
     </html>
