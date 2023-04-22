@@ -1,6 +1,8 @@
-import Footer from '../components/generic/footer';
-import Header from '../components/generic/header';
+import Footer from './components/generic/footer';
+import Header from './components/generic/header';
 import './globals.css';
+
+import SupabaseProvider from './supabase-provider';
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,13 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <Header />
-        <div className="flex-grow min-h-0">
-          <main className="flex flex-col justify-center items-center p-8">
-            {children}
-          </main>
-        </div>
-        <Footer />
+        <SupabaseProvider>
+          <Header />
+          <div className="flex-grow min-h-0">
+            <main className="flex flex-col justify-center items-center p-8">
+              {children}
+            </main>
+          </div>
+          <Footer />
+        </SupabaseProvider>
       </body>
     </html>
   );
