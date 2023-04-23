@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppContext } from '@/context/appConteçxt';
+import { useAppContext } from '@/context/appContext';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
