@@ -7,7 +7,6 @@ import Input from '../generic/input';
 
 export default function Login() {
   const { supabase, session } = useSupabase();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

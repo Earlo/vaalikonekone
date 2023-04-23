@@ -1,13 +1,12 @@
 import './globals.css';
 
+import { createServerClient } from '@/utils/supabaseServer';
 import Footer from './components/generic/footer';
 import Header from './components/generic/header';
 import SupabaseListener from './supabase-listener';
 import SupabaseProvider from './supabase-provider';
-
 // import { createServerClient } from '../utils/supabase-server';
 
-import { supabase } from '../lib/supabaseClient';
 // do not cache this layout
 export const revalidate = 0;
 
@@ -21,6 +20,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = createServerClient();
+
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -28,7 +29,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <SupabaseProvider>
+        <SupabaseProvider session={session}>
           <SupabaseListener serverAccessToken={session?.access_token} />
           <Header />
           <div className="flex-grow min-h-0">
