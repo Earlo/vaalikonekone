@@ -3,8 +3,8 @@ import './globals.css';
 import { createServerClient } from '@/utils/supabaseServer';
 import Footer from './components/generic/footer';
 import Header from './components/generic/header';
-import SupabaseListener from './supabase-listener';
-import SupabaseProvider from './supabase-provider';
+import SupabaseListener from './supabaseListener';
+import SupabaseProvider from './supabaseProvider';
 // import { createServerClient } from '../utils/supabase-server';
 
 // do not cache this layout
