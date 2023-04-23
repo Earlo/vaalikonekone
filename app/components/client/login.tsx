@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useSupabase } from '../../supabase-provider';
+import Button from '../generic/button';
+import Input from '../generic/input';
 
 export default function Login() {
   const { supabase, session } = useSupabase();
@@ -46,22 +48,30 @@ export default function Login() {
   };
 
   return session ? (
-    <button onClick={handleLogout}>Logout</button>
+    <Button onClick={handleLogout}>Logout</Button>
   ) : (
     <>
-      <input
+      <Input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        label="Email"
       />
-      <input
+      <Input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        label="Password"
       />
-      <button onClick={handleRegister}>Register</button>
-      <button onClick={handleEmailLogin}>Email Login</button>
-      <button onClick={handleGitHubLogin}>GitHub Login</button>
+      <Button onClick={handleRegister} className="mt-4">
+        Register
+      </Button>
+      <Button onClick={handleEmailLogin} className="mt-4">
+        Email Login
+      </Button>
+      <Button onClick={handleGitHubLogin} className="mt-4">
+        GitHub Login
+      </Button>
     </>
   );
 }

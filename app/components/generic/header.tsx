@@ -38,6 +38,14 @@ export default function Header() {
         >
           Contact
         </Link>
+        <Link
+          className={`mx-4 hover:text-gray-500 ${
+            pathname === '/login' ? 'text-gray-500' : ''
+          }`}
+          href="/login"
+        >
+          Login
+        </Link>
       </nav>
     </header>
   );
