@@ -9,7 +9,61 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      [_ in never]: never;
+      machines: {
+        Row: {
+          created_at: string;
+          description: string | null;
+          editors: string[] | null;
+          id: string;
+          name: string;
+          owner_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          description?: string | null;
+          editors?: string[] | null;
+          id?: string;
+          name: string;
+          owner_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          description?: string | null;
+          editors?: string[] | null;
+          id?: string;
+          name?: string;
+          owner_id?: string;
+          updated_at?: string;
+        };
+      };
+      profiles: {
+        Row: {
+          avatar_url: string | null;
+          full_name: string | null;
+          id: string;
+          updated_at: string | null;
+          username: string | null;
+          website: string | null;
+        };
+        Insert: {
+          avatar_url?: string | null;
+          full_name?: string | null;
+          id: string;
+          updated_at?: string | null;
+          username?: string | null;
+          website?: string | null;
+        };
+        Update: {
+          avatar_url?: string | null;
+          full_name?: string | null;
+          id?: string;
+          updated_at?: string | null;
+          username?: string | null;
+          website?: string | null;
+        };
+      };
     };
     Views: {
       [_ in never]: never;
