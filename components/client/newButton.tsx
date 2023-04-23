@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useSupabase } from '../../supabaseProvider';
+import { useSupabase } from '../../app/supabaseProvider';
 
 export default function NewPost() {
   const [content, setContent] = useState('');

@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { useSupabase } from '../../supabaseProvider';
+import { useSupabase } from '../../app/supabaseProvider';
 import Button from '../generic/button';
 import Input from '../generic/input';
 
 export default function Login() {
-  const { supabase, session } = useSupabase();
+  const { supabase } = useSupabase();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,13 +29,6 @@ export default function Login() {
     }
   };
 
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.log({ error });
-    }
-  };
-
   const handleRegister = async () => {
     const { error } = await supabase.auth.signUp({
       email: email,
@@ -46,9 +39,7 @@ export default function Login() {
     }
   };
 
-  return session ? (
-    <Button onClick={handleLogout}>Logout</Button>
-  ) : (
+  return (
     <>
       <Input
         type="email"
