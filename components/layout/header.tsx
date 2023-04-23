@@ -24,22 +24,6 @@ export default function Header() {
         >
           Home
         </Link>
-        <Link
-          className={`mx-4 hover:text-gray-500 ${
-            pathname === '/about' ? 'text-gray-500' : ''
-          }`}
-          href="/about"
-        >
-          About
-        </Link>
-        <Link
-          className={`mx-4 hover:text-gray-500 ${
-            pathname === '/contact' ? 'text-gray-500' : ''
-          }`}
-          href="/contact"
-        >
-          Contact
-        </Link>
         {profile ? (
           <img
             src={profile.avatar_url || '/images/default-avatar.png'}
