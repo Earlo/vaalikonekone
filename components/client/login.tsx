@@ -1,7 +1,7 @@
 'use client';
 
+import { useSupabase } from '@/context/supabaseProvider';
 import { useState } from 'react';
-import { useSupabase } from '../../app/supabaseProvider';
 import Button from '../generic/button';
 import Input from '../generic/input';
 

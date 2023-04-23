@@ -1,6 +1,6 @@
 'use client';
 
-import { useSupabase } from '../../app/supabaseProvider';
+import { useSupabase } from '@/context/supabaseProvider';
 import Button from '../generic/button';
 
 export default function Logout() {
