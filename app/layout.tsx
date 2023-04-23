@@ -1,7 +1,7 @@
 import './globals.css';
 
-import Footer from '@/components/generic/footer';
-import Header from '@/components/generic/header';
+import Footer from '@/components/layout/footer';
+import Header from '@/components/layout/header';
 
 import { createServerClient } from '@/utils/supabaseServer';
 import SupabaseListener from './supabaseListener';
