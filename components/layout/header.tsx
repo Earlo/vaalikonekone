@@ -1,12 +1,10 @@
 'use client';
 
-import { useAppContext } from '@/context/appContext';
+import ProfileIcon from '@/components/layout/profileIcon';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaUser } from 'react-icons/fa';
 
 export default function Header() {
-  const { profile } = useAppContext();
   const pathname = usePathname();
 
   return (
@@ -25,26 +23,7 @@ export default function Header() {
         >
           Home
         </Link>
-        {profile ? (
-          profile.avatar_url ? (
-            <img
-              src={profile.avatar_url}
-              alt="User Profile Avatar"
-              className="w-8 h-8 rounded-full mx-4"
-            />
-          ) : (
-            <FaUser className="w-8 h-8 mx-4" />
-          )
-        ) : (
-          <Link
-            className={`mx-4 hover:text-gray-500 ${
-              pathname === '/login' ? 'text-gray-500' : ''
-            }`}
-            href="/login"
-          >
-            Login
-          </Link>
-        )}
+        <ProfileIcon />
       </nav>
     </header>
   );
