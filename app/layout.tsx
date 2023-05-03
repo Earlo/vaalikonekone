@@ -35,11 +35,7 @@ export default async function RootLayout({
           <SupabaseListener serverAccessToken={session?.access_token} />
           <AppContextProvider>
             <Header />
-            <div className="flex-grow min-h-0">
-              <main className="flex flex-col justify-center items-center p-8">
-                {children}
-              </main>
-            </div>
+            <main className="flex-grow min-h-0">{children}</main>
             <Footer />
           </AppContextProvider>
         </SupabaseProvider>
