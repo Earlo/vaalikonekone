@@ -1,11 +1,9 @@
 'use client';
 
-import { SupabaseClient } from '@supabase/supabase-js';
+import { useSupabase } from '@/context/supabaseProvider';
 import Image from 'next/image';
-import { useState } from 'react';
 
 type ImageUploadProps = {
-  supabase: SupabaseClient;
   userId: string;
   currentImageUrl: string;
   onImageUrlChange: (newUrl: string) => void;
@@ -15,7 +13,6 @@ type ImageUploadProps = {
 };
 
 const ImageUpload = ({
-  supabase,
   userId,
   currentImageUrl,
   onImageUrlChange,
@@ -23,12 +20,11 @@ const ImageUpload = ({
   width = 128,
   height = 128,
 }: ImageUploadProps) => {
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const { supabase } = useSupabase();
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.length) {
       const file = e.target.files[0];
-      setImageFile(file);
       const fileName = `${userId}-${Date.now()}.${file.name.split('.').pop()}`;
       const { error } = await supabase.storage
         .from(storageBucket)

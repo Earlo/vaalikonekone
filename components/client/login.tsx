@@ -2,8 +2,8 @@
 
 import { useSupabase } from '@/context/supabaseProvider';
 import { useState } from 'react';
-import Button from '../generic/button';
-import Input from '../generic/input';
+import Button from '../generic/Button';
+import Input from '../generic/Input';
 
 export default function Login() {
   const { supabase } = useSupabase();

@@ -1,6 +1,6 @@
 'use client';
 
-import ProfileIcon from '@/components/layout/profileIcon';
+import ProfileIcon from '@/components/layout/ProfileIcon';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

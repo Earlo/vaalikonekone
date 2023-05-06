@@ -1,7 +1,8 @@
 'use client';
-import ImageUpload from '@/components/generic/imageUpload';
+import Button from '@/components/generic/Button';
+import ImageUpload from '@/components/generic/ImageUpload';
+import Input from '@/components/generic/Input';
 import { useAppContext } from '@/context/appContext';
-import { useSupabase } from '@/context/supabaseProvider';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -13,7 +14,6 @@ function ProfilePage() {
   const [username, setUsername] = useState(profile?.username || '');
   const [email, setEmail] = useState(profile?.email || '');
   const router = useRouter();
-  const { supabase } = useSupabase();
 
   useEffect(() => {
     if (!profile) {
@@ -28,28 +28,7 @@ function ProfilePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    let uploadedAvatarUrl = avatarUrl;
-
-    if (avatarUrl !== profile.avatar_url) {
-      const fileName = `${profile.id}-${Date.now()}.${avatarUrl
-        .split('.')
-        .pop()}`;
-      const { error: uploadError } = await supabase.storage
-        .from('avatars')
-        .upload(fileName, avatarUrl);
-
-      if (uploadError) {
-        console.error('Avatar upload failed:', uploadError);
-        setLoading(false);
-        return;
-      }
-      uploadedAvatarUrl = supabase.storage
-        .from('avatars')
-        .getPublicUrl(fileName).data.publicUrl;
-    }
-
-    await updateProfile({ avatar_url: uploadedAvatarUrl, username, email });
+    await updateProfile({ avatar_url: avatarUrl, username, email });
     setIsEditing(false);
     setLoading(false);
   };
@@ -66,14 +45,13 @@ function ProfilePage() {
           />
           <h2>{username}</h2>
           <p>{email}</p>
-          <button onClick={() => setIsEditing(true)} className="btn">
+          <Button onClick={() => setIsEditing(true)} className="btn">
             Edit
-          </button>
+          </Button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <ImageUpload
-            supabase={supabase}
             userId={profile.id}
             currentImageUrl={avatarUrl}
             onImageUrlChange={setAvatarUrl}
@@ -81,25 +59,23 @@ function ProfilePage() {
             width={128}
             height={128}
           />
-          <input
+          <Input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username"
           />
-          <input
+          <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
           />
           <div className="flex space-x-4">
-            <button type="submit" className="btn" disabled={loading}>
+            <Button type="submit" disabled={loading}>
               Save
-            </button>
-            <button onClick={() => setIsEditing(false)} className="btn">
-              Cancel
-            </button>
+            </Button>
+            <Button onClick={() => setIsEditing(false)}>Cancel</Button>
           </div>
         </form>
       )}
