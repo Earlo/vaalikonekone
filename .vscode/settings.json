@@ -1,8 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "eslint.format.enable": true,
-  "eslint.run": "onSave",
-  "eslint.lintTask.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true

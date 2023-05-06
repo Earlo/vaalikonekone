@@ -6,6 +6,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaUser } from 'react-icons/fa';
 
+function isValidImageUrl(url: string): boolean {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:';
+  } catch (error) {
+    return false;
+  }
+}
+
 export default function ProfileIcon() {
   const { profile } = useAppContext();
   const pathname = usePathname();
@@ -17,11 +26,13 @@ export default function ProfileIcon() {
       }`}
       href="/profile"
     >
-      {profile.avatar_url ? (
+      {profile.avatar_url && isValidImageUrl(profile.avatar_url) ? (
         <Image
           src={profile.avatar_url}
           alt="User Profile Avatar"
           className="w-8 h-8 rounded-full mx-4"
+          width={32}
+          height={32}
         />
       ) : (
         <FaUser className="w-8 h-8 mx-4" />
