@@ -7,7 +7,6 @@ import { createBrowserClient } from '@/utils/supabaseBrowser';
 import { useEffect, useState } from 'react';
 
 type Machine = Database['public']['Tables']['machines']['Row'];
-// Replace these with actual functions
 const fetchUserMachines = async () => {
   const supabase = createBrowserClient();
   const { data: machines, error } = await supabase.from('machines').select('*');
@@ -20,8 +19,8 @@ const createNewMachine = async (): Promise<Machine> => {
   const supabase = createBrowserClient();
   const { profile } = useAppContext();
 
-  const machineName = 'New Machine'; // replace this with the name input from user
-  const ownerId = profile?.id; // replace this with the actual user id
+  const machineName = 'New Machine';
+  const ownerId = profile?.id;
   const newMachine = {
     name: machineName,
     owner_id: ownerId,

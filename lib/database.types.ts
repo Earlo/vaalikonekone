@@ -21,7 +21,7 @@ export interface Database {
         Insert: {
           created_at?: string
           description?: string | null
-          id: string
+          id?: string
           name?: string
           owner_id: string
           updated_at?: string
