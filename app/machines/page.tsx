@@ -25,11 +25,12 @@ const createNewMachine = async (profileId: string): Promise<Machine> => {
   };
   const { data: machine, error } = await supabase
     .from('machines')
-    .insert(newMachine);
+    .insert(newMachine)
+    .single();
   if (error) {
     throw error;
   }
-  return machine![0];
+  return machine;
 };
 
 export default function Machines() {
@@ -55,7 +56,6 @@ export default function Machines() {
   return (
     <div className="p-6">
       <h1 className="text-4xl mb-6">Your Machines</h1>
-
       {machines.length > 0 ? (
         <ul className="space-y-4">
           {machines.map((machine, index) => (
