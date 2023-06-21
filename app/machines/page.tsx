@@ -15,12 +15,10 @@ const fetchUserMachines = async () => {
   }
   return machines;
 };
-const createNewMachine = async (): Promise<Machine> => {
+const createNewMachine = async (profileId: string): Promise<Machine> => {
   const supabase = createBrowserClient();
-  const { profile } = useAppContext();
-
   const machineName = 'New Machine';
-  const ownerId = profile?.id;
+  const ownerId = profileId;
   const newMachine = {
     name: machineName,
     owner_id: ownerId,
@@ -36,6 +34,7 @@ const createNewMachine = async (): Promise<Machine> => {
 
 export default function Machines() {
   const [machines, setMachines] = useState<Machine[]>([]);
+  const { profile } = useAppContext();
 
   useEffect(() => {
     const fetchMachines = async () => {
@@ -47,8 +46,10 @@ export default function Machines() {
   }, []);
 
   const handleCreateNewMachine = async () => {
-    const newMachine = await createNewMachine();
-    setMachines((prevMachines) => [...prevMachines, newMachine]);
+    if (profile) {
+      const newMachine = await createNewMachine(profile.id);
+      setMachines((prevMachines) => [...prevMachines, newMachine]);
+    }
   };
 
   return (

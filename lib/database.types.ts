@@ -36,12 +36,6 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "machines_id_fkey"
-            columns: ["id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "machines_owner_id_fkey"
             columns: ["owner_id"]
             referencedRelation: "profiles"

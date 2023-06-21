@@ -41,10 +41,10 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
           .select('id, avatar_url, full_name, username, website, updated_at')
           .eq('id', session.user.id)
           .single();
-
         if (error) {
           console.error(error);
         } else {
+          console.log('setting profile', profileData);
           setProfile(profileData);
         }
       }
