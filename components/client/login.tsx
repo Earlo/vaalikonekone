@@ -45,21 +45,30 @@ export default function Login() {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        label="Email"
+        placeholder="Email"
       />
       <Input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        label="Password"
+        placeholder="Password"
       />
-      <Button onClick={handleRegister} className="mt-4">
+      <Button
+        onClick={handleRegister}
+        className="mt-6 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+      >
         Register
       </Button>
-      <Button onClick={handleEmailLogin} className="mt-4">
-        Email Login
+      <Button
+        onClick={handleEmailLogin}
+        className="mt-6 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+      >
+        Login
       </Button>
-      <Button onClick={handleGitHubLogin} className="mt-4">
+      <Button
+        onClick={handleGitHubLogin}
+        className="mt-6 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+      >
         GitHub Login
       </Button>
     </>
