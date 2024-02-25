@@ -23,8 +23,9 @@
     }
   },
   "rules": {
+    "import/no-extraneous-dependencies": ["error"],
     "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-var-requires": 0, // for the next.config.js
+    "@typescript-eslint/no-var-requires": 0,
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
       2,
@@ -33,14 +34,13 @@
       }
     ],
     "comma-dangle": ["error", "always-multiline"],
-    "import/no-unresolved": "on",
+    "import/no-unresolved": "off", // todo: fix custom types resolver  [2, { "commonjs": true, "amd": true }],
     "import/named": 2,
     "import/namespace": 2,
     "import/default": 2,
     "import/export": 2,
     "import/order": [
-      "error",
-      { "newlines-between": "never" },
+      "warn",
       {
         "groups": [
           "index",

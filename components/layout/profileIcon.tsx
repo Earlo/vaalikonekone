@@ -30,12 +30,12 @@ export default function ProfileIcon() {
         <Image
           src={profile.avatar_url}
           alt="User Profile Avatar"
-          className="w-8 h-8 rounded-full mx-4"
+          className="mx-4 h-8 w-8 rounded-full"
           width={32}
           height={32}
         />
       ) : (
-        <FaUser className="w-8 h-8 mx-4" />
+        <FaUser className="mx-4 h-8 w-8" />
       )}
     </Link>
   ) : (

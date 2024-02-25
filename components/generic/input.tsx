@@ -19,7 +19,7 @@ const Input: React.FC<InputProps> = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={`border-2 border-gray-300 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-4 py-3 text-base text-black dark:text-white transition-colors duration-200 ease-in-out ${className}`}
+      className={`rounded-lg border-2 border-gray-300 bg-white px-4 py-3 text-base text-black transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white ${className}`}
     />
   );
 };

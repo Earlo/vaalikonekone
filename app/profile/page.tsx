@@ -34,14 +34,14 @@ function ProfilePage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <h1 className="text-6xl font-bold">Profile</h1>
       {!isEditing ? (
         <div>
           <img
             src={avatarUrl}
             alt="Avatar"
-            className="rounded-full w-32 h-32"
+            className="h-32 w-32 rounded-full"
           />
           <h2>{username}</h2>
           <p>{email}</p>

@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: ['yhcdzxbtocaendjxbvml.supabase.co'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'yhcdzxbtocaendjxbvml.supabase.co',
+      },
+    ],
   },
 };
 

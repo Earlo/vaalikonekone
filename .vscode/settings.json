@@ -1,18 +1,14 @@
 {
   "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.lintTask.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": ["typescript", "typescriptreact"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.tabSize": 2,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "files.associations": {
-    "*.css": "tailwindcss"
   }
 }

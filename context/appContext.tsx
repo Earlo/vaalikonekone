@@ -1,7 +1,7 @@
 'use client';
-import type { Database } from '@/lib/database.types';
-import { createContext, useContext, useEffect, useState } from 'react';
 import { useSupabase } from './supabaseProvider';
+import { createContext, useContext, useEffect, useState } from 'react';
+import type { Database } from '@/lib/database.types';
 
 type Profile = Database['public']['Tables']['profiles']['Row'] & {
   email?: string;
