@@ -47,6 +47,8 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
           console.log('setting profile', profileData);
           setProfile(profileData);
         }
+      } else {
+        setProfile(null);
       }
     };
 
@@ -57,10 +59,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     updatedProfile: Partial<Profile> & { email?: string },
   ) => {
     if (!session?.user?.id) return;
-
     const { email, ...profileData } = updatedProfile;
-
-    // Update the profile
     const { data: updatedProfileData, error: profileError } = await supabase
       .from('profiles')
       .update(profileData)
@@ -71,8 +70,6 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
     } else {
       setProfile(updatedProfileData);
     }
-
-    // Update the user email
     if (email) {
       const { error: emailError } = await supabase
         .from('auth.users')

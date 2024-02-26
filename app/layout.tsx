@@ -6,8 +6,8 @@ import Header from '@/components/layout/Header';
 import { AppContextProvider } from '@/context/appContext';
 import SupabaseListener from '@/context/supabaseListener';
 import SupabaseProvider from '@/context/supabaseProvider';
-
 import { createServerClient } from '@/utils/supabaseServer';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 
 export const metadata = {
   title: 'Vaalikonekone',
@@ -31,9 +31,16 @@ export default async function RootLayout({
         <SupabaseProvider session={session}>
           <SupabaseListener serverAccessToken={session?.access_token} />
           <AppContextProvider>
-            <Header />
-            <main className="min-h-0 flex-grow">{children}</main>
-            <Footer />
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Header />
+              <main className="min-h-0 flex-grow">{children}</main>
+              <Footer />
+            </ThemeProvider>
           </AppContextProvider>
         </SupabaseProvider>
       </body>

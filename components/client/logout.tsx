@@ -4,14 +4,7 @@ import { Button } from '../generic/Button';
 import { useSupabase } from '@/context/supabaseProvider';
 
 export default function Logout() {
-  const { supabase } = useSupabase();
+  const { logOut } = useSupabase();
 
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.log({ error });
-    }
-  };
-
-  return <Button onClick={handleLogout}>Logout</Button>;
+  return <Button onClick={logOut}>Log out</Button>;
 }

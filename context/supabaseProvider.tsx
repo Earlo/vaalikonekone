@@ -10,6 +10,7 @@ import type { Session, SupabaseClient } from '@supabase/auth-helpers-nextjs';
 type SupabaseContext = {
   supabase: SupabaseClient<Database>;
   session: Session | null;
+  logOut: () => Promise<void>;
 };
 
 const Context = createContext<SupabaseContext | undefined>(undefined);
@@ -24,6 +25,13 @@ export default function SupabaseProvider({
   const [supabase] = useState(() => createBrowserSupabaseClient<Database>());
   const router = useRouter();
 
+  const logOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log({ error });
+    }
+  };
+
   useEffect(() => {
     const {
       data: { subscription },
@@ -37,7 +45,7 @@ export default function SupabaseProvider({
   }, [router, supabase]);
 
   return (
-    <Context.Provider value={{ supabase, session }}>
+    <Context.Provider value={{ supabase, session, logOut }}>
       <>{children}</>
     </Context.Provider>
   );

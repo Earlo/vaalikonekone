@@ -1,5 +1,5 @@
 'use client';
-import LoadingSpinner from './loadingSpinner';
+import LoadingSpinner from '@/components/generic/LoadingSpinner';
 import { useSupabase } from '@/context/supabaseProvider';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';

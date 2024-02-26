@@ -55,19 +55,19 @@ export default function Login() {
       />
       <Button
         onClick={handleRegister}
-        className="mt-6 transition-colors duration-200 ease-in-out hover:bg-blue-700"
+        className="mt-6 transition-colors duration-200 ease-in-out"
       >
         Register
       </Button>
       <Button
         onClick={handleEmailLogin}
-        className="mt-6 transition-colors duration-200 ease-in-out hover:bg-blue-700"
+        className="mt-6 transition-colors duration-200 ease-in-out"
       >
         Login
       </Button>
       <Button
         onClick={handleGitHubLogin}
-        className="mt-6 transition-colors duration-200 ease-in-out hover:bg-blue-700"
+        className="mt-6 transition-colors duration-200 ease-in-out"
       >
         GitHub Login
       </Button>

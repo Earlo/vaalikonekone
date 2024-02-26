@@ -59,7 +59,7 @@ export default function Machines() {
       {machines.length > 0 ? (
         <ul className="space-y-4">
           {machines.map((machine, index) => (
-            <li key={index} className="rounded bg-gray-200 p-4 shadow">
+            <li key={index} className="rounded p-4 shadow">
               {/* Render your machine data */}
               <h2>{machine.name}</h2>
             </li>
