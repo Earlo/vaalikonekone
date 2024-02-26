@@ -1,43 +1,29 @@
 'use client';
-
 import { useAppContext } from '@/context/appContext';
-import Image from 'next/image';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from '@/components/generic/avatar';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { FaUser } from 'react-icons/fa';
-
-function isValidImageUrl(url: string): boolean {
-  try {
-    const parsedUrl = new URL(url);
-    return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:';
-  } catch (error) {
-    return false;
-  }
-}
 
 export default function ProfileIcon() {
   const { profile } = useAppContext();
+  const Router = useRouter();
   const pathname = usePathname();
 
   return profile ? (
-    <Link
-      className={`mx-4 hover:text-gray-500 ${
-        pathname === '/profile' ? 'text-gray-500' : ''
-      }`}
-      href="/profile"
-    >
-      {profile.avatar_url && isValidImageUrl(profile.avatar_url) ? (
-        <Image
-          src={profile.avatar_url}
-          alt="User Profile Avatar"
-          className="mx-4 h-8 w-8 rounded-full"
-          width={32}
-          height={32}
-        />
-      ) : (
+    <Avatar>
+      <AvatarImage
+        onClick={() => Router.push('/profile')}
+        src={profile.avatar_url ? profile.avatar_url : undefined}
+      />
+      <AvatarFallback>
         <FaUser className="mx-4 h-8 w-8" />
-      )}
-    </Link>
+      </AvatarFallback>
+    </Avatar>
   ) : (
     <Link
       className={`mx-4 hover:text-gray-500 ${

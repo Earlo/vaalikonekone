@@ -1,7 +1,7 @@
 'use client';
-import Button from '@/components/generic/Button';
+import { Button } from '@/components/generic/Button';
 import ImageUpload from '@/components/generic/ImageUpload';
-import Input from '@/components/generic/Input';
+import { Input } from '@/components/generic/Input';
 import { useAppContext } from '@/context/appContext';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';

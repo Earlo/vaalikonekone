@@ -1,9 +1,9 @@
 'use client';
 
+import { Button } from '../generic/Button';
+import { Input } from '../generic/Input';
 import { useSupabase } from '@/context/supabaseProvider';
 import { useState } from 'react';
-import Button from '../generic/Button';
-import Input from '../generic/Input';
 
 export default function Login() {
   const { supabase } = useSupabase();
@@ -55,19 +55,19 @@ export default function Login() {
       />
       <Button
         onClick={handleRegister}
-        className="mt-6 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+        className="mt-6 transition-colors duration-200 ease-in-out hover:bg-blue-700"
       >
         Register
       </Button>
       <Button
         onClick={handleEmailLogin}
-        className="mt-6 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+        className="mt-6 transition-colors duration-200 ease-in-out hover:bg-blue-700"
       >
         Login
       </Button>
       <Button
         onClick={handleGitHubLogin}
-        className="mt-6 hover:bg-blue-700 transition-colors duration-200 ease-in-out"
+        className="mt-6 transition-colors duration-200 ease-in-out hover:bg-blue-700"
       >
         GitHub Login
       </Button>

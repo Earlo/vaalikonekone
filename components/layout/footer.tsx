@@ -12,7 +12,7 @@ export default function Footer() {
         </Link>
       </nav>
       <p className="mx-4">
-        Made with ❤️ by{' '}
+        Made by{' '}
         <Link
           href="https://www.visapollari.fi"
           target="_blank"

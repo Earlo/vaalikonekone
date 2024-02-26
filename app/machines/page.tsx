@@ -1,10 +1,10 @@
 'use client';
 
-import Button from '@/components/generic/Button';
+import { Button } from '@/components/generic/Button';
 import { useAppContext } from '@/context/appContext';
-import type { Database } from '@/lib/database.types';
 import { createBrowserClient } from '@/utils/supabaseBrowser';
 import { useEffect, useState } from 'react';
+import type { Database } from '@/lib/database.types';
 
 type Machine = Database['public']['Tables']['machines']['Row'];
 const fetchUserMachines = async () => {
@@ -55,11 +55,11 @@ export default function Machines() {
 
   return (
     <div className="p-6">
-      <h1 className="text-4xl mb-6">Your Machines</h1>
+      <h1 className="mb-6 text-4xl">Your Machines</h1>
       {machines.length > 0 ? (
         <ul className="space-y-4">
           {machines.map((machine, index) => (
-            <li key={index} className="p-4 bg-gray-200 rounded shadow">
+            <li key={index} className="rounded bg-gray-200 p-4 shadow">
               {/* Render your machine data */}
               <h2>{machine.name}</h2>
             </li>
